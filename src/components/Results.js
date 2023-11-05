@@ -5,25 +5,28 @@ import GaugeChart from "react-gauge-chart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function TableRow({ lengths, location, header, text, left }) {
+function TableRow({ lengths, location, header, text, left, right }) {
   return (
-    <div>
-      <div className="flex h-[600px] ml-16">
-        <GaugeChart
-          id={header}
-          arcsLength={lengths}
-          colors={["#5BE12C", "#F5CD19", "#EA4228"]}
-          percent={location}
-          arcPadding={0.02}
-          hideText={true}
-        />
+    <div className="-mb-48">
+      <div className="flex h-[600px] -ml-24">
+        <div className="w-2/3 ml-4">
+          <GaugeChart
+            id={header}
+            arcsLength={lengths}
+            colors={["#5BE12C", "#F5CD19", "#EA4228"]}
+            percent={location}
+            arcPadding={0.02}
+            hideText={true}
+          />
+          <div className="relative left-[15%] -top-[8%]">{left}</div>
+          <div className="relative left-[79%] -top-[12%]">{right}</div>
+        </div>
 
-        <div className="w-full mx-8">
+        <div className="w-full mr-4">
           <div className="text-center text-5xl">{header}</div>
           <div className="text-left text-[18px]">{text}</div>
         </div>
       </div>
-      <div className="relative -top-96 ml-56">{left}</div>
     </div>
   );
 }
@@ -37,7 +40,7 @@ function Results({ creditScore, LTV, DTI, FEDTI }) {
   const creditScorePercent = (creditScore - 300) / 550;
 
   return (
-    <div>
+    <div className="relative">
       <TableRow
         lengths={creditScoreLengths}
         location={1 - creditScorePercent}
@@ -69,16 +72,19 @@ function Results({ creditScore, LTV, DTI, FEDTI }) {
             </ul>
           </div>
         }
-        left={850}
+        left={"850"}
+        right={"\u00a0300"}
       />
       <TableRow
+        className="absolute -top-96"
         lengths={LTVLengths}
         location={LTV / 100}
         header={"Loan-to-Value"}
         text={
           "Try to put more on your down payment to avoid more loans (and by extension more interest)."
         }
-        left={"\u00A0\u00A00"}
+        left={"0%"}
+        right={"100%"}
       />
       <TableRow
         lengths={DTILengths}
@@ -87,7 +93,8 @@ function Results({ creditScore, LTV, DTI, FEDTI }) {
         text={
           "Besides mortgages, credit card payments tend to make up the largest share of debt. Make sure to pay as much as you can and not just the minimum amount and that you’re paying on time to avoid those costly late fees. In general, pay off as much of your debt as possible."
         }
-        left={"\u00A0\u00A00"}
+        left={"0%"}
+        right={"100%"}
       />
       <TableRow
         lengths={FEDTILengths}
@@ -96,7 +103,8 @@ function Results({ creditScore, LTV, DTI, FEDTI }) {
         text={
           "Similar to loan-to-value, try putting more on your down payment to avoid paying more in the future."
         }
-        left={"\u00A0\u00A00"}
+        left={"0%"}
+        right={"100%"}
       />
     </div>
   );
