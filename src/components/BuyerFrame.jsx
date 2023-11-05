@@ -8,7 +8,7 @@ const BuyerFrame = ({ ID, GrossMonthlyIncome, DownPayment, AppraisedValue, remov
         <td>${AppraisedValue}</td>
         <td>
             <button onClick={removeBuyer} className="text-black h-4">
-                <img src={Delete} height={"20px"} width={"20px"} />
+                <img src={Delete} height={"20px"} width={"20px"} alt={"delete"} />
             </button>
         </td>
     </tr>);
