@@ -7,12 +7,20 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "builtin-modules": "^3.3.0",
+<<<<<<< HEAD
     "chart.js": "^4.4.0",
     "chartjs-gauge": "^0.3.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-gauge-chart": "^0.4.1",
+=======
+    "papaparse": "^5.4.1",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.1",
+>>>>>>> 7b3648556cd0a2921437d55a0c16f249c448e4f9
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
