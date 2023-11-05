@@ -63,6 +63,8 @@ function Results() {
         header={"Credit Score"}
         text={
           <div>
+          {CreditScore < 640 ?
+          <div>
             <p>
               Here are the biggest factors in your credit score and how to
               increase them:
@@ -86,6 +88,7 @@ function Results() {
                 factors.
               </li>
             </ul>
+            </div>: "" }
           </div>
         }
         left={"850"}
