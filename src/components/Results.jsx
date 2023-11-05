@@ -21,7 +21,7 @@ function TableRow({ lengths, location, header, text, left, right }) {
           <GaugeChart
             id={header}
             arcsLength={lengths}
-            colors={["#5BE12C", "#F5CD19", "#EA4228"]}
+            colors={["#EA4228", "#F5CD19", "#5BE12C"]}
             percent={location}
             arcPadding={0.02}
             hideText={true}
@@ -48,10 +48,10 @@ function Results() {
   const DTIVal = DTI(state);
   const FEDTIVal = FEDTI(state);
 
-  const creditScoreLengths = [0.21, 0, 0.339];
-  const LTVLengths = [0.8, 0.15, 0.05];
-  const DTILengths = [0.36, 0.07, 0.57];
-  const FEDTILengths = [0.28, 0, 0.72];
+  const creditScoreLengths = [0.339, 0, 0.21];
+  const LTVLengths = [0.05, 0.15, 0.8];
+  const DTILengths = [0.57, 0.07, 0.36];
+  const FEDTILengths = [0.72, 0, 0.28];
 
   const creditScorePercent = (CreditScore - 300) / 550;
 
@@ -59,7 +59,7 @@ function Results() {
     <div className="relative">
       <TableRow
         lengths={creditScoreLengths}
-        location={1 - creditScorePercent}
+        location={creditScorePercent}
         header={"Credit Score"}
         text={
           <div>
@@ -93,66 +93,82 @@ function Results() {
                 </ul>
               </div>
             ) : (
-              ""
+              "Your credit score meets the requirements!"
             )}
           </div>
         }
-        left={"850"}
-        right={"\u00a0300"}
+        left={"300"}
+        right={"\u00a0850"}
       />
       <TableRow
         className="absolute -top-96"
         lengths={LTVLengths}
-        location={LTVVal}
+        location={1 - LTVVal}
         header={"Loan-to-Value"}
         text={
           <div>
-            {LTVVal > 0.95 ?
-            <div>
-              Try to put more on your down payment to avoid more loans (and by
-              extension more interest).
-            </div> : LTVVal >= 0.8 ? 
-            <div> 
-              You need to pay insurance
-            </div> : "" }
-          </div>}
-        left={"0%"}
-        right={"100%"}
+            {LTVVal > 0.95 ? (
+              <div>
+                Try to put more on your down payment to avoid more loans (and by
+                extension more interest).
+              </div>
+            ) : LTVVal >= 0.8 ? (
+              <div>
+                You will likely receive a mortgage but will have to buy private
+                mortgage insurance.
+              </div>
+            ) : (
+              "Your LTV meets the requirements!"
+            )}
+          </div>
+        }
+        left={"100%"}
+        right={"0%"}
       />
       <TableRow
         lengths={DTILengths}
-        location={DTIVal}
+        location={1 - DTIVal}
         header={"Debt to Income"}
         text={
           <div>
-            { DTIVal > 0.43 ?
-            <div>
-              One strategy is to transfer your high interest loans to a low interest credit card. However, keep in mind that having too many credits may negatively impact your credit score.
-            </div> : DTIVal > 0.28 ?
-            <div>
-              You'll likely get approved, however it is still a good idea to try to lower your score.
-            </div> : ""
-            } 
+            {DTIVal > 0.43 ? (
+              <div>
+                Your DTI does not currently meet the requirements. One strategy
+                to decrease your ratio is to transfer your high interest loans
+                to a low interest credit card. However, keep in mind that having
+                too many credits may negatively impact your credit score.
+              </div>
+            ) : DTIVal > 0.28 ? (
+              <div>
+                You'll likely get approved, however it is still a good idea to
+                try to lower your ratio.
+              </div>
+            ) : (
+              "Your DTI meets the requirements!"
+            )}
           </div>
         }
-        left={"0%"}
-        right={"100%"}
+        left={"100%"}
+        right={"0%"}
       />
       <TableRow
         lengths={FEDTILengths}
-        location={FEDTIVal}
+        location={1 - FEDTIVal}
         header={"Front-End-Debt to Income"}
         text={
           <div>
-            { FEDTIVal > 0.28 ? 
-            <div>
-            Similar to loan-to-value, try putting more on your down payment to avoid paying more in the future.
-            </div> : ""
-            }
+            {FEDTIVal > 0.28 ? (
+              <div>
+                Similar to loan-to-value, try putting more on your down payment
+                to avoid paying more in the future.
+              </div>
+            ) : (
+              "Your FEDTI meets the requirements!"
+            )}
           </div>
         }
-        left={"0%"}
-        right={"100%"}
+        left={"100%"}
+        right={"0%"}
       />
     </div>
   );
