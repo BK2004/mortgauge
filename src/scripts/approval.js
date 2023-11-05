@@ -116,6 +116,7 @@ const isApproved = (buyerInfo) => {
     // further increasing their home-buying readiness
     return {
         approved,
+        approvalStrength,
         suggestions: buyerSuggestions,
     }
 };
