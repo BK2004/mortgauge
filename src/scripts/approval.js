@@ -125,4 +125,5 @@ export default {
     FEDTI,
     DTI,
     LTV,
+    MortgageInsurance,
 }
