@@ -3,7 +3,7 @@ function SubmitButton({ label }) {
         <input
             type="submit"
             value={label}
-            className="block w-1/2 mt-10 mx-auto p-2 bg-sky-950 text-white rounded cursor-pointer"
+            className="block w-1/2 mt-10 mx-auto p-2 bg-sky-800 text-white rounded cursor-pointer"
         />
     )
 }
