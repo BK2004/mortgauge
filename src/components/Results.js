@@ -63,32 +63,38 @@ function Results() {
         header={"Credit Score"}
         text={
           <div>
-          {CreditScore < 640 ?
-          <div>
-            <p>
-              Here are the biggest factors in your credit score and how to
-              increase them:
-            </p>
-            <ul className="list-disc ml-8">
-              <li>Payment history: make sure to make your payments on time.</li>
-              <li>
-                Amounts owed: pay off as much of your debt as possible at a
-                time.
-              </li>
-              <li>
-                Length of credit history: this increases naturally over time.
-              </li>
-              <li>
-                New credit: try to avoid opening many accounts over a short
-                period of time.
-              </li>
-              <li>
-                Credit: having multiple types of credit can help boost your
-                score, provided it doesn’t negatively impact in the other
-                factors.
-              </li>
-            </ul>
-            </div>: "" }
+            {CreditScore < 640 ? (
+              <div>
+                <p>
+                  Here are the biggest factors in your credit score and how to
+                  increase them:
+                </p>
+                <ul className="list-disc ml-8">
+                  <li>
+                    Payment history: make sure to make your payments on time.
+                  </li>
+                  <li>
+                    Amounts owed: pay off as much of your debt as possible at a
+                    time.
+                  </li>
+                  <li>
+                    Length of credit history: this increases naturally over
+                    time.
+                  </li>
+                  <li>
+                    New credit: try to avoid opening many accounts over a short
+                    period of time.
+                  </li>
+                  <li>
+                    Credit: having multiple types of credit can help boost your
+                    score, provided it doesn’t negatively impact in the other
+                    factors.
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         }
         left={"850"}
@@ -100,8 +106,16 @@ function Results() {
         location={LTVVal}
         header={"Loan-to-Value"}
         text={
-          "Try to put more on your down payment to avoid more loans (and by extension more interest)."
-        }
+          <div>
+            {LTVVal > 0.95 ?
+            <div>
+              Try to put more on your down payment to avoid more loans (and by
+              extension more interest).
+            </div> : LTVVal >= 0.8 ? 
+            <div> 
+              You need to pay insurance
+            </div> : "" }
+          </div>}
         left={"0%"}
         right={"100%"}
       />
@@ -110,7 +124,16 @@ function Results() {
         location={DTIVal}
         header={"Debt to Income"}
         text={
-          "Besides mortgages, credit card payments tend to make up the largest share of debt. Make sure to pay as much as you can and not just the minimum amount and that you’re paying on time to avoid those costly late fees. In general, pay off as much of your debt as possible."
+          <div>
+            { DTIVal > 0.43 ?
+            <div>
+              One strategy is to transfer your high interest loans to a low interest credit card. However, keep in mind that having too many credits may negatively impact your credit score.
+            </div> : DTIVal > 0.28 ?
+            <div>
+              You'll likely get approved, however it is still a good idea to try to lower your score.
+            </div> : ""
+            } 
+          </div>
         }
         left={"0%"}
         right={"100%"}
@@ -120,7 +143,13 @@ function Results() {
         location={FEDTIVal}
         header={"Front-End-Debt to Income"}
         text={
-          "Similar to loan-to-value, try putting more on your down payment to avoid paying more in the future."
+          <div>
+            { FEDTIVal > 0.28 ? 
+            <div>
+            Similar to loan-to-value, try putting more on your down payment to avoid paying more in the future.
+            </div> : ""
+            }
+          </div>
         }
         left={"0%"}
         right={"100%"}
