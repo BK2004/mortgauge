@@ -10,9 +10,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route
             index
-            element={
-              <Results creditScore={400} LTV={100} DTI={50} FEDTI={30} />
-            }
+            element={<Results creditScore={400} LTV={90} DTI={50} FEDTI={30} />}
           />
         </Route>
       </Routes>
