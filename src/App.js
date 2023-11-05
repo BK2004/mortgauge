@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<div>hello</div>} />
+          <Route index element={<IndividualAnalysisForm />} />
           <Route path="aggregate" element={<AggregateForm />} />
           <Route path="individual" element={<IndividualAnalysisForm />} />
         </Route>
