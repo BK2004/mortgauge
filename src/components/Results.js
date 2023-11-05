@@ -16,10 +16,15 @@ function TableRow({ tableData, header, text }) {
     <div className="flex h-[600px] ml-16">
       <Doughnut
         data={tableData}
-        options={{ plugins: { legend: { position: "right" } } }}
+        options={{ plugins: { legend: { position: "right", labels: {
+          font: {
+            size: 20
+          }
+        }
+       } } }}
       />
 
-      <div className="w-full mx-8">
+      <div className="w-full mx-8"> 
         <div className="text-center text-5xl">{header}</div>
         <div className="text-left text-[18px]">{text}</div>
       </div>
