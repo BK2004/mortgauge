@@ -1,3 +1,4 @@
+import IndividualAnalysisForm from "./components/IndividualAnalysisForm.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 
 import {
@@ -11,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<div>hello</div>} />
+          <Route index element={<IndividualAnalysisForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
