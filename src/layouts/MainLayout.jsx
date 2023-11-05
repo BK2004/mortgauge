@@ -1,8 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const MainLayout = () => {
     return <>
-        <div className="wrapper bg-neutral-100 w-full h-screen">
+        <Navbar />
+        <div className="wrapper">
             <Outlet />
         </div>
     </>
