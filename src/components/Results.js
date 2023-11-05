@@ -3,6 +3,14 @@ import { useLocation } from "react-router-dom";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import GaugeChart from "react-gauge-chart";
 
+import {
+  DTI,
+  FEDTI,
+  LTV,
+  MortgageInsurance,
+  isApproved,
+} from "../scripts/approval.js";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function TableRow({ lengths, location, header, text, left, right }) {
@@ -33,29 +41,19 @@ function TableRow({ lengths, location, header, text, left, right }) {
 
 function Results() {
   const { state } = useLocation();
-  const {
-    creditScore,
-    income,
-    creditCardPayment,
-    carPayment,
-    studentLoan,
-    appraised,
-    downPayment,
-    monthlyPayment,
-  } = state;
+  const { CreditScore } = state;
 
-  console.log(creditScore);
-
-  const LTV = 0;
-  const DTI = 0;
-  const FEDTI = 0;
+  const approved = isApproved(state);
+  const LTVVal = LTV(state);
+  const DTIVal = DTI(state);
+  const FEDTIVal = FEDTI(state);
 
   const creditScoreLengths = [0.21, 0, 0.339];
   const LTVLengths = [0.8, 0.15, 0.05];
   const DTILengths = [0.36, 0.07, 0.57];
   const FEDTILengths = [0.28, 0, 0.72];
 
-  const creditScorePercent = (creditScore - 300) / 550;
+  const creditScorePercent = (CreditScore - 300) / 550;
 
   return (
     <div className="relative">
@@ -96,7 +94,7 @@ function Results() {
       <TableRow
         className="absolute -top-96"
         lengths={LTVLengths}
-        location={LTV / 100}
+        location={LTVVal}
         header={"Loan-to-Value"}
         text={
           "Try to put more on your down payment to avoid more loans (and by extension more interest)."
@@ -106,7 +104,7 @@ function Results() {
       />
       <TableRow
         lengths={DTILengths}
-        location={DTI / 100}
+        location={DTIVal}
         header={"Debt to Income"}
         text={
           "Besides mortgages, credit card payments tend to make up the largest share of debt. Make sure to pay as much as you can and not just the minimum amount and that you’re paying on time to avoid those costly late fees. In general, pay off as much of your debt as possible."
@@ -116,7 +114,7 @@ function Results() {
       />
       <TableRow
         lengths={FEDTILengths}
-        location={FEDTI / 100}
+        location={FEDTIVal}
         header={"Front-End-Debt to Income"}
         text={
           "Similar to loan-to-value, try putting more on your down payment to avoid paying more in the future."

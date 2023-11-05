@@ -19,7 +19,7 @@ function IndividualAnalysisForm() {
         let monthlyPaymentVal = document.getElementById("monthly-mortgage-payment").value;
 
         console.log(creditScoreVal);
-        navigate("./results", {state: {creditScore: creditScoreVal, income: incomeVal, creditCardPayment: creditCardPaymentVal, carPayment: carPaymentVal, studentLoan: studentLoanPaymentVal, appraised: appraisedVal, downPayment: downPaymentVal, monthlyPayment: monthlyPaymentVal}});
+        navigate("./results", {state: {AppraisedValue: appraisedVal, CarPayment: carPaymentVal, CreditCardPayment: creditCardPaymentVal, CreditScore: creditScoreVal,  DownPayment: downPaymentVal, GrossMonthlyIncome: incomeVal, ID:1, MonthlyMortgagePayment: monthlyPaymentVal, StudentLoanPayments: studentLoanPaymentVal}});
     }
 
     return (
