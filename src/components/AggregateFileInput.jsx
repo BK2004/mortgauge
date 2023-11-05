@@ -53,7 +53,7 @@ const AggregateFileInput = ({ setData, setLoading }) => {
             }} />
         </label>
         {error[0] === "file" ? <p className="text-red-600">{error[1]}</p> : ""}
-        <button onClick={handleEvaluate} className="bg-sky-800 text-white rounded-lg px-2 py-1 mt-3 text-left cursor-pointer hover:ring-1 ring-blue-800 transition-all duration-100 ease-in-out" type="submit">Evaluate</button>
+        <button onClick={handleEvaluate} className="bg-sky-800 text-white rounded-lg px-6 py-2 mt-3 text-left cursor-pointer hover:ring-1 ring-blue-800 transition-all duration-100 ease-in-out" type="submit">Evaluate</button>
     </>);
 }
 
