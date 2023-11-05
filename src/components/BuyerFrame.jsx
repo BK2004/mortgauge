@@ -1,3 +1,4 @@
+import React from "react";
 import Delete from "../img/delete.png";
 
 const BuyerFrame = ({ ID, GrossMonthlyIncome, DownPayment, AppraisedValue, removeBuyer }) => {

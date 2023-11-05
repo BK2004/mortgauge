@@ -1,3 +1,4 @@
+import React from "react";
 function NavBar() {
     return (
         <nav className="w-full bg-sky-800 text-white">

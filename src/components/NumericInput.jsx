@@ -1,3 +1,4 @@
+import React from "react";
 import { useFormContext } from "react-hook-form";
 
 function NumericInput({ id, label, unit, placeholder, range, required }) {
