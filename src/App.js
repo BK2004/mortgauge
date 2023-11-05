@@ -1,3 +1,4 @@
+import React from "react";
 import AggregateForm from "./components/AggregateForm.jsx";
 import IndividualAnalysisForm from "./components/IndividualAnalysisForm.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
