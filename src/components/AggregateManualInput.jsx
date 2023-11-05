@@ -4,7 +4,6 @@ import {
     useForm
 } from "react-hook-form";
 import NumericInput from "./NumericInput";
-import SubmitButton from "./SubmitButton";
 import BuyerFrame from "./BuyerFrame";
 import Delete from "../img/delete.png";
 
@@ -33,7 +32,7 @@ const AggregateManualInput = ({ setLoading, setData }) => {
                         <th>Gross Monthly Income</th>
                         <th>Down Payment</th>
                         <th>Appraised Value</th>
-                        <th className="opacity-0"><img src={Delete} height={"20px"} width={"20px"} /></th>
+                        <th className="opacity-0"><img src={Delete} height={"20px"} width={"20px"} alt="delete" /></th>
                     </tr>
                 </thead>
                 <tbody className="w-full">
