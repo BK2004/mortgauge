@@ -1,13 +1,25 @@
 import { FormProvider, useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 
 import NumericInput from "./NumericInput"
 import SubmitButton from "./SubmitButton"
 
 function IndividualAnalysisForm() {
     const methods = useForm();
+    const navigate = useNavigate();
     
     function onSubmit(data) {
-        console.log(data);
+        let creditScoreVal = document.getElementById("credit-score").value;
+        let incomeVal = document.getElementById("gross-monthly-income").value;
+        let creditCardPaymentVal = document.getElementById("credit-card-payment").value;
+        let carPaymentVal = document.getElementById("car-payment").value;
+        let studentLoanPaymentVal = document.getElementById("student-loan-payment").value;
+        let appraisedVal = document.getElementById("appraised-value").value;
+        let downPaymentVal = document.getElementById("down-payment").value;
+        let monthlyPaymentVal = document.getElementById("monthly-mortgage-payment").value;
+
+        console.log(creditScoreVal);
+        navigate("./results", {state: {creditScore: creditScoreVal, income: incomeVal, creditCardPayment: creditCardPaymentVal, carPayment: carPaymentVal, studentLoan: studentLoanPaymentVal, appraised: appraisedVal, downPayment: downPaymentVal, monthlyPayment: monthlyPaymentVal}});
     }
 
     return (

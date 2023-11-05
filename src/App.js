@@ -13,6 +13,7 @@ function App() {
           <Route index element={<div>hello</div>} />
           <Route path="aggregate" element={<AggregateForm />} />
           <Route path="individual" element={<IndividualAnalysisForm />} />
+          <Route path="individual/results" element={<Results />} />
         </Route>
       </Routes>
     </BrowserRouter>

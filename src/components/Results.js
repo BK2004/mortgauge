@@ -1,6 +1,6 @@
 import { React } from "react";
+import { useLocation } from "react-router-dom";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
 import GaugeChart from "react-gauge-chart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -31,7 +31,25 @@ function TableRow({ lengths, location, header, text, left, right }) {
   );
 }
 
-function Results({ creditScore, LTV, DTI, FEDTI }) {
+function Results() {
+  const { state } = useLocation();
+  const {
+    creditScore,
+    income,
+    creditCardPayment,
+    carPayment,
+    studentLoan,
+    appraised,
+    downPayment,
+    monthlyPayment,
+  } = state;
+
+  console.log(creditScore);
+
+  const LTV = 0;
+  const DTI = 0;
+  const FEDTI = 0;
+
   const creditScoreLengths = [0.21, 0, 0.339];
   const LTVLengths = [0.8, 0.15, 0.05];
   const DTILengths = [0.36, 0.07, 0.57];
