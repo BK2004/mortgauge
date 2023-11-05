@@ -9,13 +9,14 @@ const credit = function(score){
     }
 }
 
-const LTV = function(loan, downPayment){
-    let value = loan + downPayment;
+const LTV = function(value, downPayment){
+    let loan = value - downPayment;
     if(loan / value > 0.95){
         return 0;
     }
     else if(loan / value > 0.8){
         // succeed with caution
+        // requires insurance, 1% of house price per year
         return 2;
     }
     else{
@@ -24,8 +25,9 @@ const LTV = function(loan, downPayment){
     }
 };
 
-const DTI = function(grossIncome, carPayment, creditCardPayment, mortgage){
-    let debt = carPayment + creditCardPayment + mortgage;
+//insurance should be per month
+const DTI = function(grossIncome, carPayment, creditCardPayment, mortgage, insurance = 0){
+    let debt = carPayment + creditCardPayment + mortgage + insurance;
     let DTI = debt / grossIncome;
     if(DTI > 0.43){
         return 0;
@@ -34,7 +36,7 @@ const DTI = function(grossIncome, carPayment, creditCardPayment, mortgage){
         // succeed with caution
         return 3;
     }
-    else if(mortgage / debt > 0.28){
+    else if((mortgage + insurance) / debt > 0.28){
         // succeed with caution
         return 6;
     }
@@ -44,8 +46,8 @@ const DTI = function(grossIncome, carPayment, creditCardPayment, mortgage){
     }
 };
 
-const FEDTI = function(housing, grossIncome){
-    if(housing / grossIncome > 28){
+const FEDTI = function(housing, grossIncome, insurance = 0){
+    if((housing + insurance) / grossIncome > 28){
         return 0;
     }
     else{
