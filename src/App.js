@@ -1,3 +1,4 @@
+import AggregateForm from "./components/AggregateForm.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 
 import {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<div>hello</div>} />
+          <Route path="aggregate" element={<AggregateForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
