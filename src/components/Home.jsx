@@ -4,7 +4,9 @@ function Home() {
   return (
     <div>
       <div className="text-center">
-        <div className="text-[220px] mt-8 font-bold text-sky-800">MortGauge</div>
+        <div className="text-[220px] mt-8 font-bold text-sky-800">
+          MortGauge
+        </div>
         <div className="text-4xl">
           Improving the mortgage experience for homebuyers and businesses alike
         </div>
@@ -78,12 +80,12 @@ function Home() {
       <div className="text-6xl mt-24">About Us</div>
       <div className="text-3xl">
         Created at HackUTD X by Connor Harris, Joe Su, Braedon Kotko, and Sean
-        Clarke, MortGauge is designed to help potential homebuyers understand
-        whether their financial situation places them in a good place to get a
-        mortgage. In addition, business can use this tool by uploading
-        information about a list of customers and can receive helpful statistics
-        to allow for better understanding of their customers' financial
-        situations.
+        Clarke while completing the Fannie Mae Challenge, MortGauge is designed
+        to help potential homebuyers understand whether their financial
+        situation places them in a good place to get a mortgage. In addition,
+        business can use this tool by uploading information about a list of
+        customers and can receive helpful statistics to allow for better
+        understanding of their customers' financial situations.
       </div>
 
       <div className="text-xl mt-20">
