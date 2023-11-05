@@ -7,8 +7,8 @@ const AggregateForm = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    return (<div className="w-full h-full flex justify-center items-center">
-        <div className="w-1/2 flex-col justify-center">
+    return (<div className="w-full">
+        <div className="w-1/2 flex-col justify-center mx-auto mt-3">
             <div className="button-bar flex gap-[2px] w-1/2 shadow-md">
                 <button 
                     className={`flex-1 text-left px-2 font-semibold text-sky-800 bg-white rounded-t-lg py-1 ${tab === "file" ? "" : " bg-opacity-60"}`}
