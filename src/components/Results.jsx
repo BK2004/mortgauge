@@ -7,8 +7,6 @@ import {
   DTI,
   FEDTI,
   LTV,
-  MortgageInsurance,
-  isApproved,
 } from "../scripts/approval.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -43,7 +41,6 @@ function Results() {
   const { state } = useLocation();
   const { CreditScore } = state;
 
-  const approved = isApproved(state);
   const LTVVal = LTV(state);
   const DTIVal = DTI(state);
   const FEDTIVal = FEDTI(state);
