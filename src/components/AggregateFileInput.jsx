@@ -16,8 +16,9 @@ const AggregateFileInput = ({ setData, setLoading }) => {
             header: true,
             skipEmptyLines: true,
             complete: (res) => {
-                setData(res);
+                setData(res.data);
                 setLoading(false);
+                console.log(res.data);
             }, error: (e) => {
                 setLoading(false);
                 setError(["file", "File invalid"]);
@@ -25,7 +26,7 @@ const AggregateFileInput = ({ setData, setLoading }) => {
         });
     }
 
-    return (<div>
+    return (<>
         <label htmlFor="file-dropzone" className="flex flex-col justify-center items-center w-full bg-gray-100 rounded-xl border-2 py-3 border-gray-200 hover:cursor-pointer hover:bg-gray-200 hover:border-gray-300">
             {!file ? <>
                 <svg className="w-8 h-8 mb-3 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
@@ -52,7 +53,7 @@ const AggregateFileInput = ({ setData, setLoading }) => {
         </label>
         {error[0] === "file" ? <p className="text-red-600">{error[1]}</p> : ""}
         <button onClick={handleEvaluate} className="bg-blue-800 text-white rounded-lg px-2 py-1 mt-3 text-left cursor-pointer hover:ring-1 ring-blue-800 transition-all duration-100 ease-in-out" type="submit">Evaluate</button>
-    </div>);
+    </>);
 }
 
 export default AggregateFileInput;
