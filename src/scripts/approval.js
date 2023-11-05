@@ -38,7 +38,7 @@ const MortgageInsurance = (buyerInfo) => {
 const DTI = (buyerInfo) => {
     const { CreditCardPayment, MonthlyMortgagePayment, StudentLoanPayments, CarPayment, GrossMonthlyIncome } = buyerInfo;
 
-    const debt = CarPayment + CreditCardPayment + MonthlyMortgagePayment + StudentLoanPayments + MortgageInsurance(buyerInfo);
+    const debt = parseFloat(CarPayment) + parseFloat(CreditCardPayment) + parseFloat(MonthlyMortgagePayment) + parseFloat(StudentLoanPayments) + MortgageInsurance(buyerInfo);
     return debt / GrossMonthlyIncome;
 };
 
@@ -64,7 +64,7 @@ const isApproved = (buyerInfo) => {
     if (CreditScore < 640) {
         approved = false;
         buyerSuggestions.push(
-            "CREDIT_SCORE_INCREASE"
+            "CREDIT_SCORE_LOW"
         );
     }
 
@@ -121,7 +121,7 @@ const isApproved = (buyerInfo) => {
     }
 };
 
-export default {
+export {
     isApproved,
     FEDTI,
     DTI,

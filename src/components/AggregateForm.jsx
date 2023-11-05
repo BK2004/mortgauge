@@ -8,16 +8,16 @@ const AggregateForm = () => {
     const [loading, setLoading] = useState(false);
 
     return (<div className="w-full h-full flex justify-center items-center">
-        <div className="w-1/2 h-[400px] flex-col justify-start">
+        <div className="w-1/2 flex-col justify-center">
             <div className="button-bar flex gap-[2px] w-1/2 shadow-md">
                 <button 
-                    className={`flex-1 text-left px-2 font-semibold text-blue-800 bg-white rounded-t-lg py-1 ${tab === "file" ? "" : " bg-opacity-60"}`}
+                    className={`flex-1 text-left px-2 font-semibold text-sky-800 bg-white rounded-t-lg py-1 ${tab === "file" ? "" : " bg-opacity-60"}`}
                     onClick={e => {if (tab !== "file") {setTab("file"); setData([])}}}
                 >
                     Input file
                 </button>
                 <button 
-                    className={`flex-1 text-left px-2 font-semibold text-blue-800 bg-white rounded-t-lg py-1 ${tab === "file" ? " bg-opacity-60" : ""}`}
+                    className={`flex-1 text-left px-2 font-semibold text-sky-800 bg-white rounded-t-lg py-1 ${tab === "file" ? " bg-opacity-60" : ""}`}
                     onClick={e => {if (tab !== "manual") {setTab("manual"); setData([])}}}
                 >
                     Input manually
@@ -28,7 +28,7 @@ const AggregateForm = () => {
             </div>
             <div className="output-container w-full">
                 {loading ? "loading" : data.length !== 0 ? <div className="w-full bg-white px-3 py-2 mt-3 rounded-lg shadow-md">
-                    <AggregateResults data />
+                    <AggregateResults data={data} />
                 </div> : ""}
             </div>
         </div>
