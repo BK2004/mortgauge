@@ -1,3 +1,4 @@
+import AggregateForm from "./components/AggregateForm.jsx";
 import IndividualAnalysisForm from "./components/IndividualAnalysisForm.jsx";
 import MainLayout from "./layouts/MainLayout.jsx";
 
@@ -12,7 +13,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<IndividualAnalysisForm />} />
+          <Route index element={<div>hello</div>} />
+          <Route path="aggregate" element={<AggregateForm />} />
+          <Route path="individual" element={<IndividualAnalysisForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
