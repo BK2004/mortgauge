@@ -1,11 +1,21 @@
-import IndividualAnalysisForm from "./components/IndividualAnalysisForm";
+import MainLayout from "./layouts/MainLayout.jsx";
+
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
 
 function App() {
-    return (
-        <div className="App">
-            <IndividualAnalysisForm />
-        </div>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<div>hello</div>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
