@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import AggregateFileInput from "./AggregateFileInput";
 import AggregateManualInput from "./AggregateManualInput";

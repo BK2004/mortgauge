@@ -1,3 +1,4 @@
+import React from "react";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title, BarElement, LinearScale, CategoryScale } from 'chart.js';
 import { 
