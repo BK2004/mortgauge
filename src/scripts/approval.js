@@ -63,3 +63,11 @@ const isApproved = function(credit, LTV, DTI, FEDTI){
         return false;
     }
 };
+
+export default {
+    isApproved,
+    FEDTI,
+    DTI,
+    LTV,
+    credit
+}
