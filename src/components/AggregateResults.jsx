@@ -67,7 +67,7 @@ const AggregateResults = ({ data }) => {
         setApprovalCount(approvedCount);
         setSuggestionCounts(suggestionCounts);
         console.log(suggestionCounts);
-    }, [])
+    }, [data])
 
     return (<div className="container w-full">
         <div className="w-full flex justify-between">
